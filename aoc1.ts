@@ -24,9 +24,10 @@ const re = i2.reduce(r2, [0, 0])
 // console.log(re[0] * re[1]) //1636725
 
 //Day 3 - *
-const i3 = read("input3.txt").map((x: String) => x.trim().split(''))
-const a = i3.reduce((a, xs) => xs.map((x, i) => a[i] += Number(x)), Array(i3[0].length).fill(0))
-const g = a.map(x => x > i3.length / 2 ? 0 : 1).join('')
+const i3 = read("input3.txt").map(x => x.split('').map(Number))
+const a = i3.reduce((a, xs) => xs.map((x, i) => a[i] += x), i3.map(_ => 0))
+const g = parseInt(a.map(x => x > i3.length / 2 ? 0 : 1).join(''), 2)
 
-console.log(parseInt(g, 2) * (Math.pow(2, g.length) - parseInt(g, 2) - 1)) //3687446
+// console.log(g * (Math.pow(2, a.length) - g - 1)) //3687446
 
+//Day 4 - 
